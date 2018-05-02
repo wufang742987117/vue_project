@@ -10,11 +10,12 @@
       </div>
       <div>
 
+      <form @submit.prevent="submit">
         <template v-for="(item,index) in addVoteInfo.attribute_data">
 
           <div v-if="item.type === 'radio'" class="marg-bottom-15px">
             <template v-for="ite in item.extra.split('|')">
-              <input :type="item.type" :placeholder="item.title" :name="item.name">{{ite}}
+              <input :type="item.type" :placeholder="item.title" :name="item.name" v-model="inputtext.name">{{ite}}
             </template>
           </div>
 
@@ -43,7 +44,7 @@
           </div>
 
         </template>
-
+        </form>
       </div>
       <div id="upload">
         <div id="img-container">
@@ -54,7 +55,7 @@
         </div>
       </div>
       <div id="submitBtn" >
-        <button>提交</button>
+        <input type="submit">提交</button>
       </div>
     </div>
     <!--<input type="file" name="files" id="img-file-input" multiple="" style="display: none">-->
@@ -66,6 +67,7 @@
 
 </template>
 
+
 <script>
     import BannerCommon from "../components/bannerCommon";
 
@@ -74,6 +76,7 @@
       name: "addVote",
       data(){
         return{
+          inputtext:{} ,
           addVoteInfo: {
             "attribute_data":[
               {
@@ -196,6 +199,12 @@
             name:""
           }
         }
+      },
+      methods: {
+          submit: function() {
+              console.log(this.inputtext);
+              debugger;
+          }
       },
       activated(){
         console.log(this.params.name);
