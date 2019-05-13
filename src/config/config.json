@@ -1,7 +1,0 @@
-/*{
-  "baseURL": "https://moa.rizhaosteel.com:8092",
-  "apiURL": "/GetOaData",
-  "currentVersion":"2.2.0",
-  "requestTimeOut": 300000,
-  "method": "get"
-}*/
